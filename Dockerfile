@@ -1,9 +1,10 @@
-# Use OpenJDK 17 slim (Debian Bullseye)
-FROM openjdk:17.0.2-jdk-slim-bullseye
+# Use OpenJDK 17 avec Alpine
+FROM eclipse-temurin:17-jdk-alpine
 
 WORKDIR /app
 
-COPY target/*.jar app.jar
+# Copier le JAR
+COPY target/student-management-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 

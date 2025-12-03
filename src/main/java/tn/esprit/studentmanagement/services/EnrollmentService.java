@@ -9,9 +9,11 @@ import java.util.List;
 
 @Service
 public class EnrollmentService implements IEnrollment {
-    @Autowired
+   // @Autowired
     EnrollmentRepository enrollmentRepository;
-
+ public EnrollmentService(EnrollmentRepository enrollmentRepository) {
+        this.enrollmentRepository = enrollmentRepository;
+    }
     @Override
     public List<Enrollment> getAllEnrollments() {
         return enrollmentRepository.findAll();

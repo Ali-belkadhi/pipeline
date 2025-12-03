@@ -10,8 +10,12 @@ import java.util.List;
 @Service
 
 public class DepartmentService implements IDepartmentService {
-    @Autowired
+  //  @Autowired
     DepartmentRepository departmentRepository;
+    // ✅ Injection par constructeur
+    public DepartmentService(DepartmentRepository departmentRepository) {
+        this.departmentRepository = departmentRepository;
+    }
 
     @Override
     public List<Department> getAllDepartments() {
