@@ -13,6 +13,7 @@ import tn.esprit.studentmanagement.services.IStudentService;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -35,6 +36,6 @@ class StudentControllerTest {
     @Test
     void testGetAllStudents() {
         List<Student> result = controller.getAllStudents();
-        assert result.size() == 2;
+        assertEquals(2, result.size());
     }
 }

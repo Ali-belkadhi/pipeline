@@ -8,6 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import tn.esprit.studentmanagement.entities.Student;
 import tn.esprit.studentmanagement.services.IStudentService;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -30,7 +31,7 @@ class StudentControllerMoreTest {
         Student s = new Student(1L, "John", "Doe");
         when(studentService.getStudentById(1L)).thenReturn(s);
         Student result = controller.getStudent(1L);
-        assert result != null;
+        assertNotNull(result);
     }
 
     @Test

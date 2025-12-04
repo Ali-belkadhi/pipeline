@@ -10,6 +10,7 @@ import tn.esprit.studentmanagement.services.IEnrollment;
 
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -30,6 +31,6 @@ class EnrollmentControllerTest {
         var list = Arrays.asList(new Enrollment(), new Enrollment());
         when(enrollmentService.getAllEnrollments()).thenReturn(list);
         var result = controller.getAllEnrollment();
-        assert result.size() == 2;
+        assertEquals(2, result.size());
     }
 }

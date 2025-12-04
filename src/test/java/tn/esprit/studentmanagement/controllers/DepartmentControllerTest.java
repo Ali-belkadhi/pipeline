@@ -10,6 +10,7 @@ import tn.esprit.studentmanagement.services.IDepartmentService;
 
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -30,6 +31,6 @@ class DepartmentControllerTest {
         var deps = Arrays.asList(new Department(), new Department());
         when(departmentService.getAllDepartments()).thenReturn(deps);
         var result = controller.getAllDepartment();
-        assert result.size() == 2;
+        assertEquals(2, result.size());
     }
 }
