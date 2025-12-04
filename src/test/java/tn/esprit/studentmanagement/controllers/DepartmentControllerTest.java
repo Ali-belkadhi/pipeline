@@ -20,7 +20,7 @@ class DepartmentControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
+   
     private IDepartmentService departmentService;
 
     @Test

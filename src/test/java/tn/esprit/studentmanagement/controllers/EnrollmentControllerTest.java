@@ -20,7 +20,7 @@ class EnrollmentControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
+  
     private IEnrollment enrollmentService;
 
     @Test

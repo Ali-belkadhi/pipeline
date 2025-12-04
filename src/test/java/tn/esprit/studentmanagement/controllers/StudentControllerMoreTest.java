@@ -19,7 +19,7 @@ class StudentControllerMoreTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
+   
     private IStudentService studentService;
 
     @Test
