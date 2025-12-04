@@ -44,6 +44,7 @@ public class Student {
         this.lastName = lastName;
     }
 
+    @SuppressWarnings("squid:S00107")
     public Student(Long idStudent, String firstName, String lastName, String email, String phone, LocalDate dateOfBirth, String address, Department department, List<Enrollment> enrollments) {
         this.idStudent = idStudent;
         this.firstName = firstName;
@@ -55,4 +56,5 @@ public class Student {
         this.department = department;
         this.enrollments = enrollments;
     }
+
 }
