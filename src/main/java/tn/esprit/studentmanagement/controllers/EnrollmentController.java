@@ -1,7 +1,7 @@
 package tn.esprit.studentmanagement.controllers;
 
-import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import tn.esprit.studentmanagement.entities.Enrollment;
 import tn.esprit.studentmanagement.services.IEnrollment;
 
@@ -10,9 +10,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/Enrollment")
 @CrossOrigin(origins = "http://localhost:4200")
-@AllArgsConstructor
 public class EnrollmentController {
-    IEnrollment enrollmentService;
+    @Autowired
+    private IEnrollment enrollmentService;
     @GetMapping("/getAllEnrollment")
     public List<Enrollment> getAllEnrollment() { return enrollmentService.getAllEnrollments(); }
 
