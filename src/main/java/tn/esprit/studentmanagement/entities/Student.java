@@ -27,8 +27,7 @@ public class Student {
     private String phone;
     private LocalDate dateOfBirth;
     private String address;
-    private Department department;
-    private List<Enrollment> enrollments;
+   
 
 
     @ManyToOne
