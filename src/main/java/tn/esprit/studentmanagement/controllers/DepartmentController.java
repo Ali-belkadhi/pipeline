@@ -1,10 +1,7 @@
 package tn.esprit.studentmanagement.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import tn.esprit.studentmanagement.entities.Department;
-import tn.esprit.studentmanagement.entities.Enrollment;
-import tn.esprit.studentmanagement.services.DepartmentService;
 import tn.esprit.studentmanagement.services.IDepartmentService;
 
 import java.util.List;
@@ -13,8 +10,11 @@ import java.util.List;
 @RequestMapping("/Depatment")
 @CrossOrigin(origins = "http://localhost:4200")
 public class DepartmentController {
-    @Autowired
     private IDepartmentService departmentService;
+
+    public DepartmentController(IDepartmentService departmentService) {
+        this.departmentService = departmentService;
+    }
 
     @GetMapping("/getAllDepartment")
     public List<Department> getAllDepartment() { return departmentService.getAllDepartments(); }
