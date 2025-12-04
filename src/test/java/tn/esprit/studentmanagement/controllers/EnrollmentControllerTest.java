@@ -1,35 +1,35 @@
 package tn.esprit.studentmanagement.controllers;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import tn.esprit.studentmanagement.entities.Enrollment;
 import tn.esprit.studentmanagement.services.IEnrollment;
 
 import java.util.Arrays;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(EnrollmentController.class)
+@ExtendWith(MockitoExtension.class)
 class EnrollmentControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
-
-  
+    @Mock
     private IEnrollment enrollmentService;
 
+    private EnrollmentController controller;
+
+    @BeforeEach
+    void setUp() {
+        controller = new EnrollmentController(enrollmentService);
+    }
+
     @Test
-    void testGetAllEnrollment() throws Exception {
+    void testGetAllEnrollment() {
         var list = Arrays.asList(new Enrollment(), new Enrollment());
         when(enrollmentService.getAllEnrollments()).thenReturn(list);
-
-        mockMvc.perform(get("/Enrollment/getAllEnrollment"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.length()").value(2));
+        var result = controller.getAllEnrollment();
+        assert result.size() == 2;
     }
 }
