@@ -1,6 +1,5 @@
 package tn.esprit.studentmanagement;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -24,17 +23,16 @@ class StudentControllerTest {
 
     private StudentController controller;
 
-    @BeforeEach
-    void setUp() {
-        when(studentService.getAllStudents()).thenReturn(Arrays.asList(
-                new Student(1L, "John", "Doe"),
-                new Student(2L, "Jane", "Smith")
-        ));
-        controller = new StudentController(studentService);
-    }
-
     @Test
     void testGetAllStudents() {
+        List<Student> students = Arrays.asList(
+                new Student(1L, "John", "Doe"),
+                new Student(2L, "Jane", "Smith")
+        );
+
+        when(studentService.getAllStudents()).thenReturn(students);
+        controller = new StudentController(studentService);
+
         List<Student> result = controller.getAllStudents();
         assertEquals(2, result.size());
     }
